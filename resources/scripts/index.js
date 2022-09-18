@@ -24,7 +24,7 @@ function updateScoreTallyUI(){
 // updateGameHistoryUI
 function updateGameHistoryUI(){
   gameHistoryParagraph.textContent = ``;
-  gameHistoryParagraph.textContent = game.gameHistoryLog.join(`\r\n`);
+  gameHistoryParagraph.innerHTML = game.gameHistoryLog.join(`<br />`);
 }
 
 // start-game-button EventListener

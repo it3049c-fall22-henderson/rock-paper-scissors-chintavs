@@ -15,7 +15,7 @@ class RockPaperScissors {
   generateCPUResponse(){
     const acceptedValues = [ `rock`, `paper`, `scissors` ];
 
-    return acceptedValues[Math.floor(Math.random() * 2)];
+    return acceptedValues[Math.floor(Math.random() * 3)];
   }
   /**
    * returns one of the following values: `win`, `lose`, `tie`
@@ -34,15 +34,15 @@ class RockPaperScissors {
    */
   determineWinner(userSelection, cpuSelection){
     if (userSelection == cpuSelection) {
-      return "Tie";
-    } else if (userSelection == "rock" && cpuSelection == "scissors" || 
-                userSelection == "scissors" && cpuSelection == "paper" ||
-                userSelection == "paper" && cpuSelection == "rock"){
-      return "Win";
+      return `tie`;
+    } else if (userSelection == `rock` && cpuSelection == `scissors` || 
+                userSelection == `scissors` && cpuSelection == `paper` ||
+                userSelection == `paper` && cpuSelection == `rock`){
+      return `win`;
     }
     else
     {
-      return "Lose"
+      return `lose`;
     }
   }
 
@@ -51,19 +51,19 @@ class RockPaperScissors {
    * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   play(userSelection){
-    var cpuSelection = this.generateCPUResponse();
-    var gameResults = this.determineWinner(userSelection, cpuSelection);
+    let cpuSelection = this.generateCPUResponse();
+    let gameResults = this.determineWinner(userSelection, cpuSelection);
 
-    if (gameResults == "Win") {
+    if (gameResults == `win`) {
       this.score.user ++;
-      this.gameHistoryLog.push(this.username + `selected` + userSelection + `, CPU selected ` + cpuSelection + `: ` + this.username `wins`);
+      this.gameHistoryLog.push(this.username + ` selected ` + userSelection + `, CPU selected ` + cpuSelection + `: ` + this.username + ` wins`);
     }
-    else if (gameResults == "Lose") {
+    else if (gameResults == `lose`) {
       this.score.cpu ++;
-      this.gameHistoryLog.push(this.username + `selected` + userSelection + `, CPU selected ` + cpuSelection + `: CPU wins`);
+      this.gameHistoryLog.push(this.username + ` selected ` + userSelection + `, CPU selected ` + cpuSelection + `: CPU wins`);
     }
     else {
-      this.gameHistoryLog.push(this.username + `selected` + userSelection + `, CPU selected ` + cpuSelection + `: it's a tie`);
+      this.gameHistoryLog.push(this.username + ` selected ` + userSelection + `, CPU selected ` + cpuSelection + `: it's a tie`);
     }
   }
 
